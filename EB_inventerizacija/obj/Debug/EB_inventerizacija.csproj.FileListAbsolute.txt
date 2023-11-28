@@ -1,0 +1,12 @@
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EB_inventerizacija.exe.config
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EB_inventerizacija.exe
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EB_inventerizacija.pdb
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.csprojAssemblyReference.cache
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form1.resources
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Properties.Resources.resources
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.csproj.GenerateResource.cache
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.csproj.CoreCompileInputs.cache
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.exe
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.pdb
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form2.resources
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form3.resources
