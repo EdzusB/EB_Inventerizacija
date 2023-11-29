@@ -10,3 +10,13 @@ Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.exe
 Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.pdb
 Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form2.resources
 Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form3.resources
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EntityFramework.dll
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EntityFramework.SqlServer.dll
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\System.Data.SQLite.dll
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\System.Data.SQLite.EF6.dll
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\System.Data.SQLite.Linq.dll
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EntityFramework.xml
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\EntityFramework.SqlServer.xml
+Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\System.Data.SQLite.xml
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.Form4.resources
+Z:\Inventerizacija_EB\EB_inventerizacija\obj\Debug\EB_inventerizacija.csproj.CopyComplete

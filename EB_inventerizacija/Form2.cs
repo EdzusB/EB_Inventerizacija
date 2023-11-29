@@ -23,5 +23,11 @@ namespace EB_inventerizacija
         {
 
         }
+
+        private void ieiet_button_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            f4.Show();
+        }
     }
 }

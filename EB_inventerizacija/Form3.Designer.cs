@@ -66,6 +66,7 @@
             this.Parole_Text.Name = "Parole_Text";
             this.Parole_Text.Size = new System.Drawing.Size(100, 20);
             this.Parole_Text.TabIndex = 3;
+            this.Parole_Text.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -111,6 +112,7 @@
             this.registreties.TabIndex = 8;
             this.registreties.Text = "Reģistrēties";
             this.registreties.UseVisualStyleBackColor = true;
+            this.registreties.Click += new System.EventHandler(this.registreties_Click);
             // 
             // Form3
             // 

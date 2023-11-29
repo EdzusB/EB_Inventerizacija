@@ -67,6 +67,7 @@
             this.ieiet_button.TabIndex = 3;
             this.ieiet_button.Text = "Ieiet";
             this.ieiet_button.UseVisualStyleBackColor = true;
+            this.ieiet_button.Click += new System.EventHandler(this.ieiet_button_Click);
             // 
             // label2
             // 
