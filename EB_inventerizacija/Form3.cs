@@ -99,10 +99,5 @@ namespace EB_inventerizacija
         public string uzvards { get; set; }
         public string lietotajvards { get; set; }
         public string parole { get; set; }
-
-        public void drukavardu()
-        {
-            Console.WriteLine("Darbinieks " + lietotajvards + " izveidots!");
-        }
     }
 }
