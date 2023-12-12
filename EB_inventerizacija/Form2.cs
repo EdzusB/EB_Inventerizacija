@@ -84,7 +84,6 @@ namespace EB_inventerizacija
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // Optional: Perform actions when the label is clicked
         }
 
         private void ieiet_button_Click(object sender, EventArgs e)
@@ -102,7 +101,7 @@ namespace EB_inventerizacija
             }
             else
             {
-                MessageBox.Show("Invalid username or password!"); // Username or password not found in the database
+                MessageBox.Show("Nepareizs lietotājvārds un/vai parole!"); // Username or password not found in the database
                 // Handle invalid login attempt
             }
 

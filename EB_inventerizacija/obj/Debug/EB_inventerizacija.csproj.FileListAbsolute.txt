@@ -44,3 +44,5 @@ C:\Users\Lietotajs\Documents\EB_inventerizacija\EB_Inventerizacija\EB_inventeriz
 C:\Users\Lietotajs\Documents\EB_inventerizacija\EB_Inventerizacija\EB_inventerizacija\obj\Debug\EB_inventerizacija.pdb
 Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\Newtonsoft.Json.dll
 Z:\Inventerizacija_EB\EB_inventerizacija\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lietotajs\Documents\EB_inventerizacija\EB_Inventerizacija\EB_inventerizacija\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lietotajs\Documents\EB_inventerizacija\EB_Inventerizacija\EB_inventerizacija\bin\Debug\Newtonsoft.Json.xml
