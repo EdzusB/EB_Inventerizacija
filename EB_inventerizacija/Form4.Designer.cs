@@ -41,7 +41,7 @@
             // konekcija_button
             // 
             this.konekcija_button.Location = new System.Drawing.Point(344, 6);
-            this.konekcija_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.konekcija_button.Margin = new System.Windows.Forms.Padding(4);
             this.konekcija_button.Name = "konekcija_button";
             this.konekcija_button.Size = new System.Drawing.Size(133, 41);
             this.konekcija_button.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.izejviela_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.izejviela_dgv.Location = new System.Drawing.Point(13, 55);
-            this.izejviela_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.izejviela_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.izejviela_dgv.Name = "izejviela_dgv";
             this.izejviela_dgv.RowHeadersWidth = 51;
             this.izejviela_dgv.Size = new System.Drawing.Size(770, 134);
@@ -70,7 +70,7 @@
             "Sieviešu lietusmētelis",
             "Sieviešu T-krekls"});
             this.inventars_cbox.Location = new System.Drawing.Point(326, 197);
-            this.inventars_cbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inventars_cbox.Margin = new System.Windows.Forms.Padding(4);
             this.inventars_cbox.Name = "inventars_cbox";
             this.inventars_cbox.Size = new System.Drawing.Size(170, 24);
             this.inventars_cbox.TabIndex = 2;
@@ -79,7 +79,7 @@
             // skaits
             // 
             this.skaits.Location = new System.Drawing.Point(326, 333);
-            this.skaits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.skaits.Margin = new System.Windows.Forms.Padding(4);
             this.skaits.Name = "skaits";
             this.skaits.Size = new System.Drawing.Size(170, 22);
             this.skaits.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.prece_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prece_dgv.Location = new System.Drawing.Point(13, 229);
-            this.prece_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.prece_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.prece_dgv.Name = "prece_dgv";
             this.prece_dgv.RowHeadersWidth = 51;
             this.prece_dgv.Size = new System.Drawing.Size(770, 96);
@@ -97,7 +97,7 @@
             // saglabat
             // 
             this.saglabat.Location = new System.Drawing.Point(344, 363);
-            this.saglabat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saglabat.Margin = new System.Windows.Forms.Padding(4);
             this.saglabat.Name = "saglabat";
             this.saglabat.Size = new System.Drawing.Size(133, 28);
             this.saglabat.TabIndex = 5;
@@ -116,9 +116,9 @@
             this.Controls.Add(this.inventars_cbox);
             this.Controls.Add(this.izejviela_dgv);
             this.Controls.Add(this.konekcija_button);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form4";
-            this.Text = "Izejvielu lietojums";
+            this.Text = "Preču lietojums";
             ((System.ComponentModel.ISupportInitialize)(this.izejviela_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prece_dgv)).EndInit();
             this.ResumeLayout(false);

@@ -3,10 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Net.Http;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace EB_inventerizacija
 {
@@ -17,7 +14,7 @@ namespace EB_inventerizacija
             InitializeComponent();
         }
 
-        static SQLiteConnection CreateConnection()
+        static SQLiteConnection CreateConnection() //Konekcija ar datubāzi
         {
             SQLiteConnection sqlite_conn;
             sqlite_conn = new SQLiteConnection("Data Source=EB_inventerizacija.db; Version=3; New=True; Compress=True; ");
@@ -37,27 +34,27 @@ namespace EB_inventerizacija
             SQLiteConnection sqlite_conn = CreateConnection();
 
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * From Izejviela";
+            sqlite_cmd.CommandText = "SELECT * From Prece"; //Ielasa visus datus no Tabulas Prece
 
             DataTable sTable = new DataTable();
             SQLiteDataAdapter sqlda = new SQLiteDataAdapter(sqlite_cmd);
             sqlda.Fill(sTable);
-            izejviela_dgv.DataSource = sTable;
+            izejviela_dgv.DataSource = sTable; //Izvada visu uz ekrāna
         }
 
         private void inventars_cbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (inventars_cbox.SelectedItem != null)
+            if (inventars_cbox.SelectedItem != null) //Pārbauda, kuri datu jāielasa
             {
                 string selectedValue = inventars_cbox.SelectedItem.ToString();
 
-                CreateConnection();
+                CreateConnection(); //Izsauc funkciju
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
 
                 SQLiteCommand sqlite_cmd;
                 sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "SELECT * FROM Izejviela WHERE Nosaukums = @SelectedValue";
+                sqlite_cmd.CommandText = "SELECT * FROM Prece WHERE Nosaukums = @SelectedValue"; //Ielasa attiecīgos datus no datubāzes
                 sqlite_cmd.Parameters.AddWithValue("@SelectedValue", selectedValue);
 
                 DataTable sTable;
@@ -65,7 +62,7 @@ namespace EB_inventerizacija
                 using (sTable = new DataTable())
                 {
                     sqlda.Fill(sTable);
-                    prece_dgv.DataSource = sTable;
+                    prece_dgv.DataSource = sTable; //Parāda ielasītos datus
                 }
             }
             
@@ -73,14 +70,14 @@ namespace EB_inventerizacija
 
         private async void saglabat_Click(object sender, EventArgs e)
         {
-            int minDaudzums = 0;
-            int maxDaudzums = 0;
-            int pieejamaisDaudzums = 0;
-            int Skaits = 0;
-            int atlikums = 0;
-            int vajadzigs = 0;
+            int minDaudzums = 0; //Definē mainīgo
+            int maxDaudzums = 0; //Definē mainīgo
+            int pieejamaisDaudzums = 0; //Definē mainīgo
+            int Skaits = 0; //Definē mainīgo
+            int atlikums = 0; //Definē mainīgo
+            int vajadzigs = 0; //Definē mainīgo
 
-            if (int.TryParse(skaits.Text, out int parsedSkaits))
+            if (int.TryParse(skaits.Text, out int parsedSkaits)) //TextBox tekstu pārvērš skaitlī
             {
                 Skaits = parsedSkaits;
             }
@@ -93,13 +90,13 @@ namespace EB_inventerizacija
             {
                 string selectedValue = inventars_cbox.SelectedItem.ToString();
 
-                CreateConnection();
+                CreateConnection(); //Izsauc funkciju
                 SQLiteConnection sqlite_conn;
                 sqlite_conn = CreateConnection();
 
                 SQLiteCommand sqlite_cmd;
                 sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "SELECT * FROM Izejviela WHERE Nosaukums = @SelectedValue";
+                sqlite_cmd.CommandText = "SELECT * FROM Prece WHERE Nosaukums = @SelectedValue"; //Ielasa attiecīgos datus
                 sqlite_cmd.Parameters.AddWithValue("@SelectedValue", selectedValue);
 
                 DataTable sTable;
@@ -107,43 +104,42 @@ namespace EB_inventerizacija
                 using (sTable = new DataTable())
                 {
                     sqlda.Fill(sTable);
-                    prece_dgv.DataSource = sTable;
+                    prece_dgv.DataSource = sTable; //Izvada ielasītos datus
                 }
 
                 if (sTable.Rows.Count > 0)
                 {
-                    minDaudzums = Convert.ToInt32(sTable.Rows[0]["min_daudzums"]);
-                    maxDaudzums = Convert.ToInt32(sTable.Rows[0]["max_daudzums"]);
-                    pieejamaisDaudzums = Convert.ToInt32(sTable.Rows[0]["pieejamais_daudzums"]);
+                    minDaudzums = Convert.ToInt32(sTable.Rows[0]["min_daudzums"]); //Piešķir mainīgajam vērtību no ielasītajiem datiem
+                    maxDaudzums = Convert.ToInt32(sTable.Rows[0]["max_daudzums"]); //Piešķir mainīgajam vērtību no ielasītajiem datiem
+                    pieejamaisDaudzums = Convert.ToInt32(sTable.Rows[0]["pieejamais_daudzums"]); //Piešķir mainīgajam vērtību no ielasītajiem datiem
                 }
 
-                if (pieejamaisDaudzums - Skaits < 0)
+                if (pieejamaisDaudzums - Skaits < 0) //Pārbauda vai noliktavā ir pietiekami daudz preču
                 {
-                    MessageBox.Show("Krājumos trūkst preču!");
+                    MessageBox.Show("Noliktavā trūkst preču!");
                 }
 
-                atlikums = pieejamaisDaudzums - Skaits;
+                atlikums = pieejamaisDaudzums - Skaits; //Aprēķina cik preču palicis
 
-                if (atlikums <= minDaudzums)
+                if (atlikums <= minDaudzums) //Pārbauda vai nevajag papildināt preču krājumus
                 {
-                    vajadzigs = maxDaudzums - atlikums;
+                    vajadzigs = maxDaudzums - atlikums; //Aprēķina cik preču nepieciešams
 
-                    // Update the pieejamais_daudzums in the database
-                    sqlite_cmd.CommandText = "UPDATE Izejviela SET pieejamais_daudzums = @NewPieejamais WHERE Nosaukums = @SelectedValue";
-                    sqlite_cmd.Parameters.AddWithValue("@NewPieejamais", maxDaudzums);
-                    sqlite_cmd.ExecuteNonQuery(); // Execute the update command
+                    sqlite_cmd.CommandText = "UPDATE Prece SET pieejamais_daudzums = @NewPieejamais WHERE Nosaukums = @SelectedValue"; //Atjauno datubāzes datus
+                    sqlite_cmd.Parameters.AddWithValue("@NewPieejamais", maxDaudzums); //Atjauno datubāzes datus
+                    sqlite_cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                     sqlite_cmd.CommandText = "UPDATE Izejviela SET pieejamais_daudzums = @NewPieejamais WHERE Nosaukums = @SelectedValue";
-                     sqlite_cmd.Parameters.AddWithValue("@NewPieejamais", atlikums);
-                     sqlite_cmd.ExecuteNonQuery(); // Execute the update command
+                     sqlite_cmd.CommandText = "UPDATE Prece SET pieejamais_daudzums = @NewPieejamais WHERE Nosaukums = @SelectedValue"; //Atjauno datubāzes datus
+                     sqlite_cmd.Parameters.AddWithValue("@NewPieejamais", atlikums); //Atjauno datubāzes datus
+                    sqlite_cmd.ExecuteNonQuery();
                 }
-                konekcija();
-                string apiUrl = "http://worldtimeapi.org/api/ip";
+                konekcija(); //Izsauc unkciju
+                string apiUrl = "http://worldtimeapi.org/api/ip"; //Deinē mainīgo
 
-                string filePath = $"Ceks_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
-                using (StreamWriter writer = File.CreateText(filePath))
+                string filePath = $"Ceks_{DateTime.Now:yyyyMMdd_HHmmss}.txt"; //Definē un piešķir mainīgajam vērtību
+                using (StreamWriter writer = File.CreateText(filePath)) //Izveido jaunu teksta failu
                 {
                     try
                     {
@@ -157,37 +153,33 @@ namespace EB_inventerizacija
                                 dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(apiResponse);
                                 string currentDateTime = data.datetime;
 
-                                writer.WriteLine("Laiks, kurā veikts ieraksts:" + currentDateTime);
-                                writer.WriteLine("Preces nosaukums: " + selectedValue);
-                                writer.WriteLine("Pārdoto preču skaits: " + Skaits);
-                                writer.WriteLine("Atlikušo preču skaits: " + atlikums);
-                                writer.WriteLine("Papildināto preču skaits: " + vajadzigs);
-                                // Add more content or additional data from your program as needed
+                                writer.WriteLine("Laiks, kurā veikts ieraksts:" + currentDateTime); //Ieraksta failā
+                                writer.WriteLine("Preces nosaukums: " + selectedValue); //Ieraksta failā
+                                writer.WriteLine("Pārdoto preču skaits: " + Skaits); //Ieraksta failā
+                                writer.WriteLine("Atlikušo preču skaits: " + atlikums); //Ieraksta failā
+                                writer.WriteLine("Papildināto preču skaits: " + vajadzigs); //Ieraksta failā
                             }
                         }
-
-                        Console.WriteLine("New file created at: " + filePath);
                     }
                     catch (IOException ex)
                     {
-                        Console.WriteLine("An error occurred while creating the file: " + ex.Message);
+                        Console.WriteLine("Kļūda faila izveidē: " + ex.Message); //Izvada paziņojumu, ja aila izveide nav izdevusies
                     }
                 }
             }
         }
-        public void konekcija()
+        public void konekcija() //Funkcija, kas izvada datus no datubāzes
         {
             SQLiteConnection sqlite_conn = CreateConnection();
 
             SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * From Izejviela";
+            sqlite_cmd.CommandText = "SELECT * From Prece"; //Atlasa attiecīgos datus
 
             DataTable sTable = new DataTable();
             SQLiteDataAdapter sqlda = new SQLiteDataAdapter(sqlite_cmd);
             sqlda.Fill(sTable);
-            izejviela_dgv.DataSource = sTable;
+            izejviela_dgv.DataSource = sTable; //Izvada datus attiecīgajā laukā
         }
-
     }
 }
 

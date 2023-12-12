@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Security.Cryptography;
@@ -23,7 +17,7 @@ namespace EB_inventerizacija
         {
 
         }
-        static SQLiteConnection CreateConnection()
+        static SQLiteConnection CreateConnection() //Konekcija ar datubāzi
                 {
                     SQLiteConnection sqlite_conn;
                     sqlite_conn = new SQLiteConnection("Data Source=EB_inventerizacija.db; Version = 3; New = True; Compress = True; ");
@@ -37,12 +31,12 @@ namespace EB_inventerizacija
                     }
                     return sqlite_conn;
                 }
-        private void registreties_Click(object sender, EventArgs e)
+        private void registreties_Click(object sender, EventArgs e) //Funkcija, kas pievieno jaunu darbinieku
         {
-            string input = Parole_Text.Text;
-            string Parole = "";
+            string input = Parole_Text.Text; //Iegūst tekstu no TextBox
+            string Parole = ""; //Ievieš jaunu mainīgo
 
-            using (MD5 md5 = MD5.Create())
+            using (MD5 md5 = MD5.Create()) //Šifrē paroli
             {
                 byte[] inputBytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashedBytes = md5.ComputeHash(inputBytes);
@@ -51,18 +45,18 @@ namespace EB_inventerizacija
                 StringBuilder parole = new StringBuilder();
                 for (int i = 0; i < hashedBytes.Length; i++)
                 {
-                    parole.Append(hashedBytes[i].ToString("x2")); // "x2" formats each byte as a two-digit hexadecimal number
+                    parole.Append(hashedBytes[i].ToString("x2"));
                 }
-                Parole = parole.ToString();
+                Parole = parole.ToString(); //Šifrētā parole
             }
 
-            registresana registresana1 = new registresana();
-            registresana1.vards = Vards_Text.Text;
-            registresana1.uzvards = Uzvards_Text.Text;
-            registresana1.parole = Parole;
-            registresana1.lietotajvards = Lietotajvards_Text.Text;
+            registresana registresana1 = new registresana(); //Jauns mainīgais
+            registresana1.vards = Vards_Text.Text; //Mainīgajam piešķir vērtību
+            registresana1.uzvards = Uzvards_Text.Text; //Mainīgajam piešķir vērtību
+            registresana1.parole = Parole; //Mainīgajam piešķir vērtību
+            registresana1.lietotajvards = Lietotajvards_Text.Text; //Mainīgajam piešķir vērtību
 
-            if (Vards_Text.Text != "" && Uzvards_Text.Text != "" && Parole_Text.Text != "" && Lietotajvards_Text.Text != "")
+            if (Vards_Text.Text != "" && Uzvards_Text.Text != "" && Parole_Text.Text != "" && Lietotajvards_Text.Text != "") //Pārbauda vai neviens TextBox nav tukšs
             {
                 try
                 {
@@ -70,11 +64,9 @@ namespace EB_inventerizacija
                     {
                         using (SQLiteCommand sqlite_cmd = sqlite_conn.CreateCommand())
                         {
-                            sqlite_cmd.CommandText = "INSERT INTO Darbinieks (Vards, Uzvards, Lietotajvards, Parole) VALUES ('" + registresana1.vards + "', '" + registresana1.uzvards + "', '" + registresana1.lietotajvards + "', '" + registresana1.parole + "');";
+                            sqlite_cmd.CommandText = "INSERT INTO Darbinieks (Vards, Uzvards, Lietotajvards, Parole) VALUES ('" + registresana1.vards + "', '" + registresana1.uzvards + "', '" + registresana1.lietotajvards + "', '" + registresana1.parole + "');"; //Ievada jauno darbinieku datubāzē
                             sqlite_cmd.ExecuteNonQuery();
                         }
-
-                        Console.WriteLine("Data successfully inserted into the database.");
                     }
                 }
                 catch (Exception ex)
@@ -84,16 +76,16 @@ namespace EB_inventerizacija
             }
             else
             {
-                MessageBox.Show("Ludzu aizpildiet visus ievades laukus!!!");
+                MessageBox.Show("Ludzu aizpildiet visus ievades laukus!!!"); //Izvada paziņojumu, ja kāds lauks atstāts tukšs
             }
-            Form4 f4 = new Form4();
-            f4.Show();
+            Form4 f4 = new Form4(); //Ievieš jaunu mainīgo
+            f4.Show(); //Pāriet uz Form4
         }
 
         
     }
 
-    class registresana
+    class registresana //Izveido klasi ar mainīgajiem
     {
         public string vards { get; set; }
         public string uzvards { get; set; }
