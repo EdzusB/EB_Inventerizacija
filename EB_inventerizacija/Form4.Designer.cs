@@ -40,10 +40,9 @@
             // 
             // konekcija_button
             // 
-            this.konekcija_button.Location = new System.Drawing.Point(344, 6);
-            this.konekcija_button.Margin = new System.Windows.Forms.Padding(4);
+            this.konekcija_button.Location = new System.Drawing.Point(258, 5);
             this.konekcija_button.Name = "konekcija_button";
-            this.konekcija_button.Size = new System.Drawing.Size(133, 41);
+            this.konekcija_button.Size = new System.Drawing.Size(100, 33);
             this.konekcija_button.TabIndex = 0;
             this.konekcija_button.Text = "Konekcija";
             this.konekcija_button.UseVisualStyleBackColor = true;
@@ -52,11 +51,10 @@
             // izejviela_dgv
             // 
             this.izejviela_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.izejviela_dgv.Location = new System.Drawing.Point(13, 55);
-            this.izejviela_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.izejviela_dgv.Location = new System.Drawing.Point(10, 45);
             this.izejviela_dgv.Name = "izejviela_dgv";
             this.izejviela_dgv.RowHeadersWidth = 51;
-            this.izejviela_dgv.Size = new System.Drawing.Size(770, 134);
+            this.izejviela_dgv.Size = new System.Drawing.Size(578, 109);
             this.izejviela_dgv.TabIndex = 1;
             // 
             // inventars_cbox
@@ -69,37 +67,33 @@
             "Sieviešu jaka",
             "Sieviešu lietusmētelis",
             "Sieviešu T-krekls"});
-            this.inventars_cbox.Location = new System.Drawing.Point(326, 197);
-            this.inventars_cbox.Margin = new System.Windows.Forms.Padding(4);
+            this.inventars_cbox.Location = new System.Drawing.Point(244, 160);
             this.inventars_cbox.Name = "inventars_cbox";
-            this.inventars_cbox.Size = new System.Drawing.Size(170, 24);
+            this.inventars_cbox.Size = new System.Drawing.Size(128, 21);
             this.inventars_cbox.TabIndex = 2;
             this.inventars_cbox.SelectedIndexChanged += new System.EventHandler(this.inventars_cbox_SelectedIndexChanged);
             // 
             // skaits
             // 
-            this.skaits.Location = new System.Drawing.Point(326, 333);
-            this.skaits.Margin = new System.Windows.Forms.Padding(4);
+            this.skaits.Location = new System.Drawing.Point(244, 271);
             this.skaits.Name = "skaits";
-            this.skaits.Size = new System.Drawing.Size(170, 22);
+            this.skaits.Size = new System.Drawing.Size(128, 20);
             this.skaits.TabIndex = 3;
             // 
             // prece_dgv
             // 
             this.prece_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.prece_dgv.Location = new System.Drawing.Point(13, 229);
-            this.prece_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.prece_dgv.Location = new System.Drawing.Point(10, 186);
             this.prece_dgv.Name = "prece_dgv";
             this.prece_dgv.RowHeadersWidth = 51;
-            this.prece_dgv.Size = new System.Drawing.Size(770, 96);
+            this.prece_dgv.Size = new System.Drawing.Size(578, 78);
             this.prece_dgv.TabIndex = 4;
             // 
             // saglabat
             // 
-            this.saglabat.Location = new System.Drawing.Point(344, 363);
-            this.saglabat.Margin = new System.Windows.Forms.Padding(4);
+            this.saglabat.Location = new System.Drawing.Point(258, 295);
             this.saglabat.Name = "saglabat";
-            this.saglabat.Size = new System.Drawing.Size(133, 28);
+            this.saglabat.Size = new System.Drawing.Size(100, 23);
             this.saglabat.TabIndex = 5;
             this.saglabat.Text = "Saglabāt";
             this.saglabat.UseVisualStyleBackColor = true;
@@ -107,16 +101,16 @@
             // 
             // Form4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 554);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(597, 332);
             this.Controls.Add(this.saglabat);
             this.Controls.Add(this.prece_dgv);
             this.Controls.Add(this.skaits);
             this.Controls.Add(this.inventars_cbox);
             this.Controls.Add(this.izejviela_dgv);
             this.Controls.Add(this.konekcija_button);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form4";
             this.Text = "Preču lietojums";
             ((System.ComponentModel.ISupportInitialize)(this.izejviela_dgv)).EndInit();

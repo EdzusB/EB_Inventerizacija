@@ -34,9 +34,9 @@
             // 
             // pierakstisanas_button
             // 
-            this.pierakstisanas_button.Location = new System.Drawing.Point(659, 81);
+            this.pierakstisanas_button.Location = new System.Drawing.Point(114, 172);
             this.pierakstisanas_button.Name = "pierakstisanas_button";
-            this.pierakstisanas_button.Size = new System.Drawing.Size(87, 23);
+            this.pierakstisanas_button.Size = new System.Drawing.Size(142, 55);
             this.pierakstisanas_button.TabIndex = 0;
             this.pierakstisanas_button.Text = "Pierakstīties";
             this.pierakstisanas_button.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // registresanas_button
             // 
-            this.registresanas_button.Location = new System.Drawing.Point(659, 110);
+            this.registresanas_button.Location = new System.Drawing.Point(114, 260);
             this.registresanas_button.Name = "registresanas_button";
-            this.registresanas_button.Size = new System.Drawing.Size(87, 23);
+            this.registresanas_button.Size = new System.Drawing.Size(142, 55);
             this.registresanas_button.TabIndex = 1;
             this.registresanas_button.Text = "Reģistrēties";
             this.registresanas_button.UseVisualStyleBackColor = true;
@@ -56,7 +56,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BackgroundImage = global::EB_inventerizacija.Properties.Resources.stends;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(449, 449);
             this.Controls.Add(this.registresanas_button);
             this.Controls.Add(this.pierakstisanas_button);
             this.Name = "Form1";
